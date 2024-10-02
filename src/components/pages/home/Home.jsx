@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./home.css";
-import Testimonial from '../../testimonials/testimonial';
+import Testimonial from '../../testimonials/Testimonial';
 
 const Home = () => {
 
