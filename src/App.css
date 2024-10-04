@@ -6,7 +6,7 @@ body{
 }
 
 .common-btn{
-  background-color: #8a4baf;
+  background-color: #8abf8a;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -17,7 +17,7 @@ body{
   margin-top: 10px;
 
   &:hover{
-    background-color: #5f357e;
+    background-color: #4b7e5f      ;
   }
 
   @media (max-width:768px) {

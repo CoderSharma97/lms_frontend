@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <div className="home">
         <div className="home-content">
-          <h1>Welcome to our E learning Platform</h1>
+          <h1>Welcome to EduNexus</h1>
           <p>Learn grow , excel</p>
           <button onClick={()=>navigate("/courses")} className='common-btn'>Get Started</button>
         </div>

@@ -15,7 +15,7 @@
   align-items: center;
   padding:25px;
   min-height: 100vh;
-  background: linear-gradient(90deg, #8a4baf 60%, #8a4baf 40.1%);
+  background: linear-gradient(90deg, #8abf8a 60%, #8abf8a 40.1%);
 }
 
 .container form{
@@ -82,14 +82,14 @@
   width: 100%;
   padding:12px;
   font-size: 17px;
-  background: #8a4baf;
+  background: #8abf8a;
   color:#fff;
   margin-top: 5px;
   cursor: pointer;
 }
 
 .container form .submit-btn:hover{
-  background: #5f357e;
+  background: #4b7e5f;
 }
 /* Add this to your existing PaymentGateway CSS */
 .payment-overlay {
