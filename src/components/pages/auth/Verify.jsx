@@ -3,39 +3,38 @@ import { Link, useNavigate } from "react-router-dom";
 import { userData } from "../../../context/UserContext";
 
 const Verify = () => {
-  
   const { btnLoading, verifyOtp } = userData();
   const navigate = useNavigate();
+  const [otp, setOtp] = useState("");
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(otp);
     await verifyOtp(Number(otp), navigate);
-    
   };
-  const [otp, setOtp] = useState("");
+
   return (
     <div className="auth-page">
       <div className="auth-form">
-        <h2>Verify Account</h2>
+        <h2>Account Verification</h2>
+        <p>Enter the OTP sent to your email to verify your account.</p>
         <form onSubmit={submitHandler}>
-          <label htmlFor="otp">OTP</label>
+          <label htmlFor="otp">Enter OTP</label>
           <input
             type="number"
-            name=""
-            id=""
-            required
+            id="otp"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
+            placeholder="Enter OTP here"
+            required
           />
 
-          <button disabled ={btnLoading} type="submit" className="common-btn">
-            {btnLoading ? "Please wait": "Verify"}
+          <button type="submit" disabled={btnLoading} className="common-btn">
+            {btnLoading ? "Verifying..." : "Verify Account"}
           </button>
         </form>
 
-        <p>
-          Go to <Link to="/login">Login</Link> page
+        <p className="redirect">
+          <Link to="/login">Back to Login</Link>
         </p>
       </div>
     </div>

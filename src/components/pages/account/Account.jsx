@@ -1,14 +1,13 @@
 import React from "react";
 import { MdDashboard } from "react-icons/md";
-import "./account.css";
 import { IoMdLogOut } from "react-icons/io";
 import { userData } from "../../../context/UserContext";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import "./account.css";
 
 const Account = ({ user }) => {
   const { setIsAuth, setUser } = userData();
-
   const navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -18,6 +17,7 @@ const Account = ({ user }) => {
     toast.success("Logged out");
     navigate("/login");
   };
+
   return (
     <div>
       {user && (
@@ -31,7 +31,7 @@ const Account = ({ user }) => {
               <strong>Email - {user.email}</strong>
             </p>
             <button
-              className="common-btn "
+              className="common-btn"
               onClick={() => navigate(`/${user._id}/dashboard`)}
             >
               <MdDashboard />
@@ -40,7 +40,7 @@ const Account = ({ user }) => {
             <br />
             {user.role === "admin" && (
               <button
-                className="common-btn "
+                className="common-btn"
                 onClick={() => navigate(`/admin/dashboard`)}
               >
                 <MdDashboard />
@@ -50,8 +50,7 @@ const Account = ({ user }) => {
             <br />
             <button
               onClick={logoutHandler}
-              className="common-btn "
-              style={{ backgroundColor: "red" }}
+              className="common-btn logout"
             >
               <IoMdLogOut />
               Logout

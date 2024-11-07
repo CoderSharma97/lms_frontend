@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./users.css"; // Ensure that CSS is not overriding any table styles
+import "./users.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../../main";
@@ -62,11 +62,11 @@ const AdminUsers = ({ user }) => {
         <table className="user-table">
           <thead>
             <tr>
-              <td>#</td>
-              <td>Name</td>
-              <td>Email</td>
-              <td>Role</td>
-              <td>Update Role</td>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Update Role</th>
             </tr>
           </thead>
           <tbody>
@@ -80,7 +80,7 @@ const AdminUsers = ({ user }) => {
                   <td>
                     <button
                       onClick={() => updateRole(e._id)}
-                      className="common-btn"
+                      className="common-btn update-btn"
                     >
                       Update Role
                     </button>

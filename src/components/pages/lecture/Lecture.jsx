@@ -69,21 +69,25 @@ const Lecture = ({ user }) => {
     };
   };
 
-  const submitHandler = async(e) => {
+  const submitHandler = async (e) => {
     setBtnLoading(true);
     e.preventDefault();
 
     const myform = new FormData();
-    myform.append("title",title);
-    myform.append("description",description);
-    myform.append("file",video);
+    myform.append("title", title);
+    myform.append("description", description);
+    myform.append("file", video);
 
     try {
-      const data = await axios.post(`${server}/api/course/${params.id}`,myform,{
-        headers:{
-          token:localStorage.getItem("token"),
+      const data = await axios.post(
+        `${server}/api/course/${params.id}`,
+        myform,
+        {
+          headers: {
+            token: localStorage.getItem("token"),
+          },
         }
-      });
+      );
 
       toast.success(data.message);
       setBtnLoading(false);
@@ -93,21 +97,19 @@ const Lecture = ({ user }) => {
       setDescription("");
       setVideo("");
       setVideoPrev("");
-      
     } catch (error) {
       toast.error(error.response.data.message);
       setBtnLoading(false);
     }
-
   };
 
-  const deleteHandler = async(id)=>{
-    if(confirm("are you sure you want to delete lecture")){
+  const deleteHandler = async (id) => {
+    if (confirm("Are you sure you want to delete this lecture?")) {
       try {
-        const {data} = await axios.delete(`${server}/api/lecture/${id}`,{
-          headers:{
+        const { data } = await axios.delete(`${server}/api/lecture/${id}`, {
+          headers: {
             token: localStorage.getItem("token"),
-          }
+          },
         });
         toast.success(data.message);
         await fetchLectures();
@@ -115,7 +117,7 @@ const Lecture = ({ user }) => {
         toast.error(error.response.data.message);
       }
     }
-  }
+  };
 
   useEffect(() => {
     fetchLectures();
@@ -149,8 +151,12 @@ const Lecture = ({ user }) => {
           </div>
           <div className="right">
             {user && user.role === "admin" && (
-              <button className="common-btn" onClick={() => setShow(!show)} disabled={btnLoading} type="submit" >
-               { !btnLoading ? "Add Lecture +":"please wait" } 
+              <button
+                className="common-btn"
+                onClick={() => setShow(!show)}
+                disabled={btnLoading}
+              >
+                {btnLoading ? "Please Wait..." : "Add Lecture +"}
               </button>
             )}
 
@@ -181,10 +187,10 @@ const Lecture = ({ user }) => {
                     onChange={changeVideoHandler}
                   />
                   {videoPrev && (
-                    <video src={videoPrev} alt="" width={300} controls></video>
+                    <video src={videoPrev} alt="" width={300} controls />
                   )}
                   <button type="submit" className="common-btn">
-                    Add
+                    {btnLoading ? "Uploading..." : "Add Lecture"}
                   </button>
                 </form>
               </div>
@@ -199,12 +205,12 @@ const Lecture = ({ user }) => {
                     }`}
                     onClick={() => fetchLecture(e._id)}
                   >
-                    {i + 1}. {e.title}
+                    {e.title}
                   </div>
                   {user && user.role === "admin" && (
-                    <button onClick={()=>deleteHandler(e._id)}
-                      className="common-btn"
-                      style={{ background: "red" }}
+                    <button
+                      onClick={() => deleteHandler(e._id)}
+                      className="common-btn delete-btn"
                     >
                       Delete {e.title}
                     </button>

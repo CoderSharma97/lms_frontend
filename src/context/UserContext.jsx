@@ -25,6 +25,7 @@ export const UserContextProvider = ({ children }) => {
       setUser(data.user);
       setIsAuth(true);
       setBtnLoading(false);
+      fetchUser();
       navigate("/");
       await fetchMyCourse();
     } catch (error) {
