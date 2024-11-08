@@ -4,7 +4,6 @@
     justify-content: center;
     min-height: 100vh;
      background: linear-gradient(135deg, rgba(135, 184, 255, 0.1), rgba(85, 125, 185, 0.1));
-
     padding: 30px;
   }
   
@@ -75,3 +74,6 @@
     text-decoration: underline;
   }
   
+  .extra{
+    margin-top: 60px;
+  }

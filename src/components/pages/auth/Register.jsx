@@ -16,8 +16,8 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-form">
+    <div className="auth-page extra">
+      <div className="auth-form ">
         <h2>Join Us Today!</h2>
         <p>Start your journey with us and enjoy exclusive benefits.</p>
         <form onSubmit={submitHandler}>
